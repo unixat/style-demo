@@ -1,1 +1,1 @@
-import '/css/_core.scss'
+import '/css/core.scss'
