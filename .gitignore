@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 *.orig
 *~
+
+# git submodule
+/css
