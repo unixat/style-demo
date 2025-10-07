@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -14,10 +14,11 @@
     <header>
       <nav role="navigation">
         <a class="logo" href="https://reg.dev2.freecomett.org.uk/">
-          <img src="/css/images/freecomett.svg" alt="FreeComETT logo">
+          <img src="/css/images/freecomett.svg" alt="FreeComETT logo" />
         </a>
         <ul>
-          <li>Transcription
+          <li>
+            Transcription
             <ul>
               <li>Active transcriptions</li>
               <li>Manage assignments</li>
@@ -28,7 +29,8 @@
           </li>
           <li>Edit</li>
           <li>Tools</li>
-          <li>Support
+          <li>
+            Support
             <ul>
               <li>See all comments</li>
               <li>Post a comment</li>
@@ -37,45 +39,87 @@
           </li>
         </ul>
         <a class="logo block" href="https://reg.dev2.freecomett.org.uk/">
-          <img src="/css/images/freereg.svg" alt="FreeREG logo">
+          <img src="/css/images/freereg.svg" alt="FreeREG logo" />
         </a>
       </nav>
     </header>
+    <section class="breadcrumb-trail">
+      <a href="#">Home</a>
+      <img
+        src="./css/images/icon-breadcrumb-arrow.svg"
+        alt="breadcrumb trail next item indicator"
+      />
+      <a href="#">Section</a>
+      <img
+        src="./css/images/icon-breadcrumb-arrow.svg"
+        alt="breadcrumb trail next item indicator"
+      />
+      <span>Current Page</span>
+    </section>
 
     <section class="inputs py-2">
-      <label for="input_fld">Enter a search term:
+      <label for="input_fld"
+        >Enter a search term:
         <input type="text" id="input_fld" />
       </label>
     </section>
 
-
-    <a class="block py-2" href="https://github.com/FreeUKGen/style-guide.git">Style Guide repository</a>
+    <a class="block py-2" href="https://github.com/FreeUKGen/style-guide.git"
+      >Style Guide repository</a
+    >
     <table>
-    <thead>
-    <tr>
-      <th>Date placed</th>
-      <th>Assignment</th>
-      <th>Some column1</th>
-      <th>Some column2</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td>2021-01-01</td>
-      <td>Assignment 1</td>
-      <td>Some data</td>
-      <td>Some data</td>
-    </tr>
-    <tr>
-      <td>2021-12-15</td>
-      <td>Assignment 2</td>
-      <td>Some data</td>
-      <td>Some data</td>
-    </tr>
-    </tbody>
+      <thead>
+        <tr>
+          <th>Date placed</th>
+          <th>Assignment</th>
+          <th>Select</th>
+          <th>Rotate</th>
+          <th>Click to show image</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2021-01-01</td>
+          <td>Assignment 1</td>
+          <td>
+            <input type="checkbox" name="first-checkbox" id="first-checkbox" />
+          </td>
+          <td>
+            <button class="button icon-only" aria-label="rotate">
+              <img src="./css/images/icon-rotate.svg" alt="rotate icon" />
+            </button>
+          </td>
+          <td><button class="button show-image icon-only">
+            <img src="./css/images/test-img-thumbnail.jpg" alt="thumbnnail image" />
+          </button></td>
+        </tr>
+        <tr>
+          <td>2021-12-15</td>
+          <td>Assignment 2</td>
+          <td>
+            <input
+              type="checkbox"
+              name="second-checkbox"
+              id="second-checkbox"
+            />
+          </td>
+           <td>
+            <button class="button icon-only" aria-label="rotate">
+              <img src="./css/images/icon-rotate.svg" alt="rotate icon" />
+            </button>
+          </td>
+           <td><button class="button show-image icon-only">
+            <img src="./css/images/test-img-thumbnail.jpg" alt="thumbnnail image" />
+          </button></td>
+        </tr>
+      </tbody>
     </table>
-
-
-
+    <input
+      type="search"
+      name="search"
+      id="search"
+      placeholder="Search"
+      required="true"
+    />
   </body>
 </html>
