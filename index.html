@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -14,7 +14,7 @@
     <header>
       <nav role="navigation">
         <a class="logo" href="https://reg.dev2.freecomett.org.uk/">
-          <img src="/css/images/freecomett.svg" alt="FreeComETT logo">
+          <img src="/css/images/freecomett.svg" alt="FreeComETT logo" />
         </a>
         <ul>
           <li>File
@@ -44,10 +44,14 @@
           </li>
         </ul>
         <a class="logo block" href="https://reg.dev2.freecomett.org.uk/">
-          <img src="/css/images/freereg.svg" alt="FreeREG logo">
+          <img src="/css/images/freereg.svg" alt="FreeREG logo" />
         </a>
       </nav>
     </header>
+
+    <section class="inputs py-2">
+      <label for="input_fld"
+        >Enter a search term:
 
     <section class="inputs py-2 ml-1">
       <label for="input_fld">Enter a search term:
@@ -64,6 +68,43 @@
       </select>
     </section>
 
+    <a class="block py-2" href="https://github.com/FreeUKGen/style-guide.git"
+      >Style Guide repository</a
+    >
+    <table>
+      <thead>
+        <tr>
+          <th>Date placed</th>
+          <th>Assignment</th>
+          <th>Some column1</th>
+          <th>Some column2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2021-01-01</td>
+          <td>Assignment 1</td>
+          <td>Some data</td>
+          <td>Some data</td>
+        </tr>
+        <tr>
+          <td>2021-12-15</td>
+          <td>Assignment 2</td>
+          <td>Some data</td>
+          <td>Some data</td>
+        </tr>
+      </tbody>
+    </table>
+    <section class="buttons">
+      <button class="button"><span>Button (default)</span></button>
+      <button class="button-hover button"><span>Button (hover)</span></button>
+      <button class="button-disabled button">
+        <span>Button (disabled)</span>
+      </button>
+      <button class="button-focus button">
+        <span>Button (focus)</span>
+      </button>
+    </section>
     <a class="block py-2 ml-1" href="https://github.com/FreeUKGen/style-guide.git">Style Guide repository</a>
     <table class="ml-1">
     <thead>
@@ -93,7 +134,5 @@
   <footer class="row mt-3 ml-1">
     This is the demo footer
   </footer>
-
-
   </body>
 </html>
