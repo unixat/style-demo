@@ -17,31 +17,34 @@
             <img src="/css/images/freecomett.svg" alt="FreeComETT logo"/>
         </a>
         <ul>
-            <li>File
-                <ul>
-                    <li>New</li>
-                    <li>Open</li>
-                    <li>Log Out</li>
-                </ul>
-            </li>
-            <li>Edit</li>
-            <li>Tools
-                <ul>
-                    <li>Upload CSV</li>
-                    <li>View Upload Status</li>
-                    <li>List Images</li>
-                    <li>Refresh Page</li>
-                    <li>Log into FreeREG</li>
-                    <li>Administration</li>
-                </ul>
-            </li>
-            <li>Support
-                <ul>
-                    <li>See all comments</li>
-                    <li>Post a comment</li>
-                    <li>Message Coordinator</li>
-                </ul>
-            </li>
+          <li>
+            File
+            <ul>
+              <li>New</li>
+              <li>Open</li>
+              <li>Log Out</li>
+            </ul>
+          </li>
+          <li>Edit</li>
+          <li>
+            Tools
+            <ul>
+              <li>Upload CSV</li>
+              <li>View Upload Status</li>
+              <li>List Images</li>
+              <li>Refresh Page</li>
+              <li>Log into FreeREG</li>
+              <li>Administration</li>
+            </ul>
+          </li>
+          <li>
+            Support
+            <ul>
+              <li>See all comments</li>
+              <li>Post a comment</li>
+              <li>Message Coordinator</li>
+            </ul>
+          </li>
         </ul>
         <a class="logo block" href="https://reg.dev2.freecomett.org.uk/">
             <img src="/css/images/freereg.svg" alt="FreeREG logo"/>
@@ -62,116 +65,203 @@
     <span>Current Page</span>
 </section>
 
-<section class="inputs py-2">
-    <label for="input_fld"
-    >Enter a search term:
-    </label>
-</section>
+    <section class="inputs py-2"></section>
+    <section class="inputs py-2 ml-1">
+      <label for="input_fld"
+        >Enter a search term:
+        <input type="text" id="input_fld" />
+      </label>
+    </section>
 
-<section class="inputs py-2 ml-1">
-    <label for="input_fld">Enter a search term:
-        <input type="text" id="input_fld"/>
-    </label>
-</section>
+    <section class="inputs py-2 ml-1">
+      <label for="selector">Choose your kitty</label>
+      <select id="selector">
+        <option>Affectionate kitten</option>
+        <option>Adventurous kitten</option>
+        <option>Climb the curtains kitten</option>
+      </select>
+    </section>
 
-<a class="block py-2" href="https://github.com/FreeUKGen/style-guide.git"
->Style Guide repository</a>
-<table>
-    <thead>
-    <tr>
-        <th>Date placed</th>
-        <th>Assignment</th>
-        <th>Select</th>
-        <th>Rotate</th>
-        <th>Click to show image</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>2021-01-01</td>
-        <td>Assignment 1</td>
-        <td>
-            <input type="checkbox" name="first-checkbox" id="first-checkbox"/>
-        </td>
-        <td>
-            <button class="button icon-only" aria-label="rotate">
-                <img src="./css/images/icon-rotate.svg" alt="rotate icon"/>
-            </button>
-        </td>
-        <td>
-            <button class="button show-image icon-only">
-                <img src="./css/images/test-img-thumbnail.jpg" alt="thumbnnail image"/>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>2021-12-15</td>
-        <td>Assignment 2</td>
-        <td>
-            <input
-                    type="checkbox"
-                    name="second-checkbox"
-                    id="second-checkbox"
-            />
-        </td>
-        <td>
-            <button class="button icon-only" aria-label="rotate">
-                <img src="./css/images/icon-rotate.svg" alt="rotate icon"/>
-            </button>
-        </td>
-        <td>
-            <button class="button show-image icon-only">
-                <img src="./css/images/test-img-thumbnail.jpg" alt="thumbnnail image"/>
-            </button>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<section class="buttons">
-    <button class="button"><span>Button (default)</span></button>
-    <button class="button-hover button"><span>Button (hover)</span></button>
-    <button class="button-disabled button">
+    <a class="block py-2" href="https://github.com/FreeUKGen/style-guide.git"
+      >Style Guide repository</a
+    >
+    <section class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Date placed</th>
+            <th>Assignment</th>
+            <th>Some column1</th>
+            <th>Some column2</th>
+            <th>Some column3</th>
+            <th>Some column4</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2021-01-01</td>
+            <td>Assignment 1</td>
+            <td>Some data</td>
+            <td>Some data</td>
+            <td>Some data</td>
+            <td>Some data</td>
+          </tr>
+          <tr>
+            <td>2021-12-15</td>
+            <td>Assignment 2</td>
+            <td>Some data</td>
+            <td>Some data</td>
+            <td>Some data</td>
+            <td>Some data</td>
+          </tr>
+          <tr>
+            <td>2021-12-15</td>
+            <td>Assignment 3</td>
+            <td>Some data</td>
+            <td>Some data</td>
+            <td>Some data</td>
+            <td>Some data</td>
+          </tr>
+          <tr>
+            <td>2021-12-15</td>
+            <td>Assignment 4</td>
+            <td>Some data</td>
+            <td>Some data</td>
+            <td>Some data</td>
+            <td>Some data</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <div class="carousel">
+      <div class="carousel-sliders">
+        <input type="image" class="sliders" src="./css/images/btn-left.png" />
+
+        <button class="carousel-btn">1</button>
+        <button class="carousel-btn">2</button>
+        <button class="carousel-btn">3</button>
+        <input type="image" class="sliders" src="./css/images/btn-right.png" />
+      </div>
+    </div>
+    <section class="carousel-styles">
+      <p>Default carousel buttons</p>
+      <input type="image" class="sliders" src="./css/images/btn-left.png" />
+      <input type="image" class="sliders" src="./css/images/btn-right.png" />
+      <p>Hover carousel buttons</p>
+      <input
+        type="image"
+        class="sliders slider-hover"
+        src="./css/images/btn-left-hover.png"
+      />
+      <input
+        type="image"
+        class="sliders slider-hover"
+        src="./css/images/btn-right-hover.png"
+      />
+
+      <p>Focus carousel buttons</p>
+      <input
+        type="image"
+        class="sliders slider-focus"
+        src="./css/images/btn-left.png"
+      />
+      <input
+        type="image"
+        class="sliders slider-focus"
+        src="./css/images/btn-right.png"
+      />
+    </section>
+    <section class="next-item-btns">
+      <p>Default next / previous buttons</p>
+      <input
+        type="image"
+        class="previous-btn"
+        src="./css/images/btn-left.png"
+      />
+      <input type="image" class="next-btn" src="./css/images/btn-right.png" />
+
+      <p>Default next / previous buttons (hover)</p>
+      <input
+        type="image"
+        class="previous-btn-hover previous-btn"
+        src="./css/images/btn-left-hover.png"
+      />
+      <input
+        type="image"
+        class="next-btn-hover next-btn"
+        src="./css/images/btn-right-hover.png"
+      />
+
+      <p>Default next / previous buttons (focus)</p>
+      <input
+        type="image"
+        class="previous-btn-focus previous-btn"
+        src="./css/images/btn-left.png"
+      />
+      <input
+        type="image"
+        class="next-btn-focus next-btn"
+        src="./css/images/btn-right.png"
+      />
+
+      <p>Default next / previous buttons (disabled)</p>
+      <input
+        type="image"
+        class="previous-btn-disabled previous-btn"
+        src="./css/images/btn-left-disabled.png"
+      />
+      <input
+        type="image"
+        class="next-btn-disabled next-btn"
+        src="./css/images/btn-right-disabled.png"
+      />
+      <p>Selected button (default)</p>
+      <button class="selected-btn">1</button>
+      <p>Selected button (focus)</p>
+      <button class="selected-btn-focus">1</button>
+      <p>Selected button (disabled)</p>
+      <button class="selected-btn-disabled">1</button>
+    </section>
+    <section class="buttons">
+      <button class="button"><span>Button (default)</span></button>
+      <button class="button-hover button"><span>Button (hover)</span></button>
+      <button class="button-disabled button">
         <span>Button (disabled)</span>
-    </button>
-    <button class="button-focus button">
+      </button>
+      <button class="button-focus button">
         <span>Button (focus)</span>
-    </button>
-</section>
-<a class="block py-2 ml-1" href="https://github.com/FreeUKGen/style-guide.git">Style Guide repository</a>
-<table class="ml-1">
-    <thead>
-    <tr>
-        <th>Date placed</th>
-        <th>Assignment</th>
-        <th>Some column1</th>
-        <th>Some column2</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>2021-01-01</td>
-        <td>Assignment 1</td>
-        <td>Some data</td>
-        <td>Some data</td>
-    </tr>
-    <tr>
-        <td>2021-12-15</td>
-        <td>Assignment 2</td>
-        <td>Some data</td>
-        <td>Some data</td>
-    </tr>
-    </tbody>
-</table>
+      </button>
+    </section>
+    <a
+      class="block py-2 ml-1"
+      href="https://github.com/FreeUKGen/style-guide.git"
+      >Style Guide repository</a
+    >
+    <table class="ml-1">
+      <thead>
+        <tr>
+          <th>Date placed</th>
+          <th>Assignment</th>
+          <th>Some column1</th>
+          <th>Some column2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2021-01-01</td>
+          <td>Assignment 1</td>
+          <td>Some data</td>
+          <td>Some data</td>
+        </tr>
+        <tr>
+          <td>2021-12-15</td>
+          <td>Assignment 2</td>
+          <td>Some data</td>
+          <td>Some data</td>
+        </tr>
+      </tbody>
+    </table>
 
-<footer class="row mt-3 ml-1">
-    This is the demo footer
-</footer>
-<input
-        type="search"
-        name="search"
-        id="search"
-        placeholder="Search"
-        required="true"
-/>
-</body>
+    <footer class="row mt-3 ml-1">This is the demo footer</footer>
+  </body>
 </html>
