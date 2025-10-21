@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Style Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+
+<main class="gutter">
+
+    <h1 class="mt-1 mb-1">Button</h1>
+    <section class="my-2">
+        <a href="index.html">Home</a>
+    </section>
+
+    <section class="flex">
+        <button>Button</button>
+        <button disabled="disabled">Disabled</button>
+    </section>
+
+    <div class="carousel my-2">
+        <div class="carousel-sliders">
+            <input type="image" class="sliders" src="./css/images/btn-left.png"  alt="left"/>
+
+            <button class="carousel-btn">1</button>
+            <button class="carousel-btn">2</button>
+            <button class="carousel-btn">3</button>
+            <input type="image" class="sliders" src="./css/images/btn-right.png" alt="right "/>
+        </div>
+    </div>
+    <section class="mt-2 carousel-styles">
+        <p>Default carousel buttons</p>
+        <input type="image" class="sliders" src="./css/images/btn-left.png" alt="left" />
+        <input type="image" class="sliders" src="./css/images/btn-right.png" alt="right" />
+
+        <p class="mt-2">Hover carousel buttons</p>
+        <input
+                type="image"
+                class="sliders slider-hover"
+                src="./css/images/btn-left-hover.png"
+        />
+        <input
+                type="image"
+                class="sliders slider-hover"
+                src="./css/images/btn-right-hover.png"
+        />
+
+        <p class="mt-2">Focus carousel buttons</p>
+        <input
+                type="image"
+                class="sliders slider-focus"
+                src="./css/images/btn-left.png" alt="left"
+        />
+        <input
+                type="image"
+                class="sliders slider-focus"
+                src="./css/images/btn-right.png" alt="right"
+        />
+    </section>
+
+    <section class="mt-2 next-item-btns">
+        <p>Default next / previous buttons</p>
+        <input
+                type="image"
+                class="previous-btn"
+                src="./css/images/btn-left.png"
+        />
+        <input type="image" class="next-btn" src="./css/images/btn-right.png" />
+
+        <p class="mt-2">Default next / previous buttons (hover)</p>
+        <input
+                type="image"
+                class="previous-btn-hover previous-btn"
+                src="./css/images/btn-left-hover.png"
+        />
+        <input
+                type="image"
+                class="next-btn-hover next-btn"
+                src="./css/images/btn-right-hover.png"
+        />
+</main>
+
+
+</body>
+</html>
