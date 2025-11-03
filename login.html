@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/freereg.css" />
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <header>
+        <div class="image-container">
+          <img 
+            alt="Free UK Genealogy - Human transcription of family history data"
+            src="/css/icons/freeukgen-icon.png"
+          />
+        </div>
+        <div class="image-container">
+          <img 
+            alt="FreeComETT"
+            src="/css/icons/FreeComETT.png"
+          />
+        </div>
+      </header>
+    </div>
+    <div class="row">
+      <main>
+        <div class="login">
+          <div class="image-container">
+            <img 
+              alt="FreeComETT"
+              class="login__image"
+              src="/css/icons/freecomett.svg"
+            />
+          </div>
+          <div class="login__intro">
+            <p class="login__intro">
+              Welcome to FreeComETT, FreeUKGenealogy's transcription applications.
+              To get started, please select the project you wish to work with.
+            </p>
+          </div>
+          <div class="login__select">
+            <button>
+              <img 
+                alt="FreeREG"
+                src="/css/icons/freereg.svg"
+              />
+            </button>
+            <button>
+              <img 
+                alt="FreeBMD"
+                src="/css/icons/freebmd.svg"
+              />
+            </button>
+          </div>
+          <form method="POST" class="login__form">
+            <div class="form__field">
+              <label for="user-id">User ID</label>
+              <input type="text" name="user-id" id="user-id" placeholder="FreeREG User ID" />
+            </div>
+            <div class="form__field">
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" placeholder="FreeREG Password" />
+            </div>
+            <a class="form__forgot" href="#">Forgotten Password?</a>
+            <input type="submit" value="Log In" />
+          </form>
+          <div class="login__register">
+            <p>You don't have a FreeREG Identity?</p>
+            <a href="#">Start the FreeREG registration process</a>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
