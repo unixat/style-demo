@@ -8,68 +8,67 @@
 </head>
 <body>
   <div class="container">
-    <div class="row">
       <header>
         <div class="image-container">
-          <img 
-            alt="Free UK Genealogy - Human transcription of family history data"
-            src="/css/images/freeukgen-icon.png"
-          />
+          <a href="/">
+            <img
+              alt="Free UK Genealogy - Human transcription of family history data"
+              src="/css/images/freeukgen-icon.png"
+            />
+          </a>
         </div>
         <div class="image-container">
-          <img 
+          <img
             alt="FreeComETT"
             src="/css/images/FreeComETT.png"
           />
+          <p><strong>Com</strong>munity <strong>E</strong>ntity <strong>T</strong>ranscription <strong>T</strong>ool</p>
         </div>
       </header>
-    </div>
-    <div class="row">
-      <main>
+      <main class="col-md-8 col-md-offset-2">
         <div class="login">
           <div class="image-container">
-            <img 
-              alt="FreeComETT"
-              class="login__image"
-              src="/css/images/freecomett.svg"
-            />
+            <img
+                alt="FreeComETT"
+                class="login__image"
+                src="/css/images/freecomett.svg~"
+              />
           </div>
-          <div class="login__intro">
-            <p class="login__intro">
-              Welcome to FreeComETT, FreeUKGenealogy's transcription applications.
-              To get started, please select the project you wish to work with.
-            </p>
-          </div>
+          <p class="login__intro">
+            Welcome to FreeComETT, FreeUKGenealogy's transcription applications.
+            To get started, please select the project you wish to work with.
+          </p>
           <div class="login__select">
-            <button>
-              <img 
-                alt="FreeREG"
-                src="/css/images/freereg.svg"
-              />
-            </button>
-            <button>
-              <img 
-                alt="FreeBMD"
-                src="/css/images/freebmd.svg"
-              />
-            </button>
+            <a href="#" class="active">
+                <img
+                  alt="FreeREG"
+                  class="active"
+                  src="/css/images/freereg-logo.svg"
+                />
+            </a>
+            <a href="#">
+                <img
+                  alt="FreeBMD"
+                  src="/css/images/freebmd.svg"
+                />
+            </a>
           </div>
-          <form method="POST" class="login__form">
-            <div class="form__field">
+          <form class="login__form" method="POST">
+            <div class="login__form-field">
               <label for="user-id">User ID</label>
               <input type="text" name="user-id" id="user-id" placeholder="FreeREG User ID" />
             </div>
-            <div class="form__field">
+            <div class="login__form-field">
               <label for="password">Password</label>
               <input type="password" name="password" id="password" placeholder="FreeREG Password" />
             </div>
-            <a class="form__forgot" href="#">Forgotten Password?</a>
-            <input type="submit" value="Log In" />
+            <a href="#">Forgotten Password?</a>
+            <input class="login__submit" type="submit" value="Log in">
+            <div class="login__register">
+              <p>You don't have a FreeREG Identity?</p>
+              <a href="#">Start the FreeREG registration process</a>
+            </div>
           </form>
-          <div class="login__register">
-            <p>You don't have a FreeREG Identity?</p>
-            <a href="#">Start the FreeREG registration process</a>
-          </div>
         </div>
       </main>
     </div>
