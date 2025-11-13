@@ -72,8 +72,6 @@
       </section>
 
       <h1 class="mt-1 fg-bold">Load CSV file - select a file to download</h1>
-
-      <!-- CSV Files in FreeComETT -->
       <section class="py-4">
         <div class="row mb-4">
           <div>
@@ -199,17 +197,15 @@
           </table>
         </div>
       </section>
-
-      <!-- CSV Files on FreeREG Server -->
       <section class="py-4">
         <div class="row mb-3">
           <div>
             <h3 class="mb-2 fg-bold">Your CSV Files on the FreeREG server</h3>
             <p>Double click the header to sort by it</p>
           </div>
-          <div class="col-3">
-            <form role="search" class="search-form" action="#" method="get">
-              <input type="search" placeholder="Search" id="search" />
+          <div class="load-csv__search-container">
+            <form role="search" class="load-csv__search-form" action="#" method="get">
+              <input class="search" type="search" placeholder="Search" id="search" />
             </form>
           </div>
         </div>
