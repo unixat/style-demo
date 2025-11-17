@@ -1,42 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Style Demo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="/src/main.js"></script>
-</head>
-<body>
+  </head>
+  <body>
+    <main class="gutter">
+      <h1 class="my-1">Input</h1>
+      <a href="index.html">Home</a>
 
-<main class="gutter">
-    <h1 class="my-1">Input</h1>
-    <a href="index.html">Home</a>
-
-    <section class="inputs py-2">
+      <section class="inputs py-2">
         <label class="wid-20 inline-block" for="input_fld"
-        >Enter a search term:
-            <input type="text" id="input_fld" />
+          >Enter a search term:
+          <input type="text" id="input_fld" placeholder="Type here" />
         </label>
-    </section>
+      </section>
 
-    <section class="py-1">
+      <section class="py-1">
         <label for="selector">Dropdown</label>
         <select id="selector">
-            <option>Affectionate kitten</option>
-            <option>Adventurous kitten</option>
-            <option>Climb the curtains kitten</option>
+          <option>Affectionate kitten</option>
+          <option>Adventurous kitten</option>
+          <option>Climb the curtains kitten</option>
         </select>
-    </section>
+      </section>
 
-    <section class="mt-4">
+      <section class="mt-4">
         <h2>Hidden fields</h2>
         <button id="show-btn" class="mt-2">Show</button>
         <label class="hidden ml-3" id="hidden-container" for="hidden-field">
-            hidden label
-            <input type="text" id="hidden-field" value="field value" />
+          hidden label
+          <input type="text" id="hidden-field" value="field value" />
         </label>
-    </section>
-</main>
+      </section>
 
-</body>
+      <section>
+        <label class="label-above mt-2">Label above input box</label>
+        <input class="label-above mt-1" placeholder="Type here" />
+      </section>
+
+      <section class="mt-2">
+        <label class="label-left mt-2">Label to the left of input box</label>
+        <input class="label-left" placeholder="Type here" />
+      </section>
+
+      <section class="mt-2">
+        <label class="mt-2">Disabled input box</label>
+        <input class="input-disabled" disabled />
+      </section>
+    </main>
+  </body>
 </html>
