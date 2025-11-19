@@ -1,4 +1,5 @@
 import '/css/core.scss'
+import '/css/reg/main.scss'
 
 import '/src/sortTables.js';
 
