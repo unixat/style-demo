@@ -1,5 +1,7 @@
 import '/css/core.scss'
 
+import '/src/sortTables.js';
+
 let showBtn = document.getElementById('show-btn');
 
 if (showBtn) {
