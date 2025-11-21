@@ -1,5 +1,5 @@
 /*
-William 19 Nov 2025
+William w/c 17 Nov 2025
  Selects one or more image thumbnails,
  previewing 90° rotations via CSS transform, and sending async POST
  requests to the backend rotate endpoint `/image/rotate` for now.
@@ -12,10 +12,11 @@ William 19 Nov 2025
  containing the filename the server expects, or fallback to the basename 
  of the `src` attribute. I've added a class `allocation-thumbnail` for now.
    
- - Provide three buttons in the page with IDs:
+ - Provide four buttons in the page with IDs:
      - `rotate-clockwise`  (rotate 90deg preview)
      - `rotate-anticlockwise` (rotate -90deg preview)
-     - `rotate-save-btn`  (send rotation mappings to server)
+     - `save-btn`  (send rotation mappings to server)
+     - `cancel-btn`  (resets rotations in state and UI)
  - The server endpoint is expected to be POST /image/rotate and accept
    form params `filename` and `degrees` for now.
  - This module performs one POST per image (server currently supports jpegs only).
@@ -26,9 +27,7 @@ Behaviour:
  - Save sends requests sequentially and logs results to console.
 
  Still to do:
- - Bulk select and rotate on Frontend
- - It's not possible to rotate one image, unselect it and select another to rotate 
- that one and have the UI remember the rotation positions in state.
+ - Sending rotation img data to the server needs validation.
 */
 (function () {
   'use strict';
@@ -51,34 +50,47 @@ Behaviour:
     return thumbnails;
   }
 
-  // Return the filename portion of a URL or filesystem path 
-  // and strip any query string. This is used as a fallback 
-  // key when a thumbnail lacks data-image-filename.
-  // If your server requires a full path or special ID, prefer setting
-  // data-image-filename on the <img> elements in the view.
+  // generate unique key for each image
+  function getKeyForImg(img) {
+    // Prefer explicit filename if provided by server/template
+    if (img.dataset.imageFilename) return img.dataset.imageFilename;
+    // Fallback: use basename plus a per-element index (set at init) to ensure uniqueness
+    const idx = img.dataset.imageIndex || '0';
+    return `${basename(img.src)}::${idx}`;
+  }
+
+  /* 
+  Return the filename portion of a URL or filesystem path 
+  and strip any query string. This is used as a fallback 
+  key when a thumbnail lacks data-image-filename.
+  If server requires a full path or special ID, prefer setting
+  data-image-filename on the <img> elements in the view.
+  */ 
   function basename(path) {
     return path.split('/').pop().split('?')[0];
   }
 
   // Toggle selection when clicking thumbnail
   function toggleSelection(img) {
-    const key = img.dataset.imageFilename || basename(img.src) || img.dataset.imageIndex;
+    const key = getKeyForImg(img);
     if (!key) return;
     if (img.classList.contains(SELECTED_CLASS)) {
-      // deselect: remove class and clear preview
+      // deselect: remove class but keep the preview angle in state and keep visual rotation
       img.classList.remove(SELECTED_CLASS);
-      previewAngles.delete(key);
-      img.style.transform = '';
-      // remove outline styling
       img.style.outline = '';
-      console.log(`ImageRotate: deselected ${key}`);
+      console.log(`ImageRotate: deselected ${key} (rotation is ${previewAngles.get(key) || 0}°)`);
     } else {
       // select: add class and show simple outline
       img.classList.add(SELECTED_CLASS);
-      previewAngles.set(key, 0);
+      // if we don't yet have a stored angle for this image, initialize to 0
+      if (!previewAngles.has(key)) previewAngles.set(key, 0);
+      const angle = previewAngles.get(key) || 0;
       img.style.boxSizing = 'border-box';
       img.style.outline = '6px solid #007fad';
-      console.log(`ImageRotate: selected ${key}`);
+      // ensure the visual rotation reflects the stored angle when selecting
+      img.style.transition = 'transform 0.5s ease';
+      img.style.transform = `rotate(${angle}deg)`;
+      console.log(`ImageRotate: selected ${key} (current ${angle}°)`);
     }
   }
 
@@ -87,18 +99,22 @@ Behaviour:
     const selected = getThumbnails().filter(img => img.classList.contains(SELECTED_CLASS));
     if (selected.length === 0) return;
     selected.forEach(img => {
-      const key = img.dataset.imageFilename || basename(img.src) || img.dataset.imageIndex;
-      const prev = previewAngles.get(key) || 0;
+      const key = getKeyForImg(img);
+      // Look up the previously stored angle for this image.
+      // If none exists, default to 0.
+      const prev = previewAngles.get(key) || 0; 
+      /* 
+      Compute the next angle by adding the requested delta (e.g. +90 or -90).
+      The modulo ensures the result stays within 0..359 range even for negative deltas.
+      ((x % 360) + 360) % 360 is a safe pattern that normalizes negative values.
+      */ 
       const next = ((prev + delta) % 360 + 360) % 360;
-      previewAngles.set(key, next);
-      // apply CSS preview
-      img.style.transition = 'transform 0.5s ease';
+      previewAngles.set(key, next); // Save state by storing the updated angle back into the Map.
+      img.style.transition = 'transform 0.5s ease'; // apply CSS preview
       img.style.transform = `rotate(${next}deg)`;
       console.log(`ImageRotate: preview ${key} -> ${next}°`);
     });
   }
-
-  // Selection is shown by adding an outline style to the <img> itself.
 
   // Send rotation request for a single image. Returns parsed JSON or throws.
   async function sendRotateRequest(filename, degrees) {
@@ -122,18 +138,23 @@ Behaviour:
     return res.json().catch(() => ({}));
   }
 
-  // Save rotations: iterate over selected images and POST to server sequentially
+  // Save rotations: iterate over all images with non-zero rotation and POST to server sequentially
   async function saveRotations() {
-    const selected = getThumbnails().filter(img => img.classList.contains(SELECTED_CLASS));
-    if (selected.length === 0) {
-      console.log('ImageRotate: no images selected');
+    // Find all images with a non-zero rotation
+    const thumbs = getThumbnails();
+    const toSave = thumbs.filter(img => {
+      const key = getKeyForImg(img);
+      const degrees = previewAngles.get(key) || 0;
+      return degrees !== 0;
+    });
+    if (toSave.length === 0) {
+      console.log('ImageRotate: no images to save');
       return;
     }
 
-    // We'll do sequential to avoid overloading server; group-by-angle could be implemented
-    for (const img of selected) {
-      const filename = img.dataset.imageFilename || basename(img.src) || img.dataset.imageIndex;
-      const key = img.dataset.imageFilename || basename(img.src) || img.dataset.imageIndex;
+    for (const img of toSave) {
+      const key = getKeyForImg(img);
+      const filename = img.dataset.imageFilename || basename(img.src) || key;
       const degrees = previewAngles.get(key) || 0;
 
       try {
@@ -159,9 +180,7 @@ Behaviour:
         img.classList.remove(SELECTED_CLASS);
         previewAngles.delete(key);
         img.style.transform = '';
-        // remove outline selection styling
         img.style.outline = '';
-    
       }
     }
     console.log('ImageRotate: rotation requests completed');
@@ -170,7 +189,9 @@ Behaviour:
   // Init bindings
   function init() {
     const thumbs = getThumbnails();
-    thumbs.forEach(img => {
+    thumbs.forEach((img, i) => {
+      // assign a stable per-element index used by getKeyForImg when no server filename is present
+      img.dataset.imageIndex = String(i);
       img.style.cursor = 'pointer';
       img.addEventListener('click', (e) => {
         toggleSelection(img);
@@ -181,11 +202,21 @@ Behaviour:
     const rightBtn = document.getElementById('rotate-anticlockwise');
     const cancelBtn = document.getElementById('cancel-btn');
     const saveBtn = document.getElementById('save-btn');
-    
-    
+
     leftBtn.addEventListener('click', () => adjustSelection(90));
     rightBtn.addEventListener('click', () => adjustSelection(-90));
     saveBtn.addEventListener('click', saveRotations);
+
+    // Cancel button: reset all thumbnails to original orientation and clear state
+    cancelBtn.addEventListener('click', () => {
+      getThumbnails().forEach(img => {
+        img.style.transform = '';
+        img.classList.remove(SELECTED_CLASS);
+        img.style.outline = '';
+      });
+      previewAngles.clear();
+      console.log('ImageRotate: all rotations cancelled and reset');
+    });
   }
 
   // Auto-init when DOM is ready
