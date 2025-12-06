@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View CSV</title>
+    <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+<header>
+    <nav role="navigation">
+        <a class="logo" href="https://reg.dev2.freecomett.org.uk/">
+            <img src="/css/images/freecomett.svg" alt="FreeComETT logo"/>
+        </a>
+        <ul>
+            <li>
+                File
+                <ul>
+                    <li>New</li>
+                    <li>Open</li>
+                    <li>Log Out</li>
+                </ul>
+            </li>
+            <li>
+                Tools
+                <ul>
+                    <li>Upload CSV</li>
+                    <li>View Upload Status</li>
+                    <li>List Images</li>
+                    <li>Refresh Page</li>
+                    <li>Log into FreeREG</li>
+                    <li>Administration</li>
+                </ul>
+            </li>
+            <li>
+                Support
+                <ul>
+                    <li>See all comments</li>
+                    <li>Post a comment</li>
+                    <li>Message Coordinator</li>
+                </ul>
+            </li>
+        </ul>
+        <a class="logo block" href="https://reg.dev2.freecomett.org.uk/">
+            <img src="/css/images/freereg.svg" alt="FreeREG logo"/>
+        </a>
+    </nav>
+</header>
+
+<br>
+<div class="gutter">
+    <div>
+        <!--Page Navigation-->
+        <span class="link-container"> 
+            <a class="link-style" href="link.html">Link</a>  >
+            <a class="link-style" href="link.html">Link</a>  >
+            <a class="link-style" href="link.html">Link</a>  >
+            <a class="link-style" href="link.html">Link</a>  >
+            <a class="link-style" href="link.html">Link</a>  >
+            <a class="link-style" href="link.html">Link</a>  >
+            <span style="color: black; word-spacing: 0px;">Current Page</span>
+            <!-- User Info-->
+            <span class="info-one">
+                <span class="info-two">Records transcribed - xxxxxxx </span> 
+                <span>Cameron Harlow-Sheen- in test 3 </span>
+            </span>
+        </span> <br><br>
+        <h3>View CSV File</h3> <br>
+        <small>Here is the raw data that you requested = STSAAMA7501224468. You cannot change it here.</small>
+    </div> 
+    <!--File View-->
+    
+        <div class="csv-viewer">
+            <!--CSV title-->
+            <pre class="csv-viewer__content_header">CSV File: Baptisms 001  </pre>
+            <!-- CSV Content-->
+            <pre class="csv-viewer__content">
+                "REG","SUB","PAR","CHAPMAN","COUNTY","COUNTRY","DISTRICT","EDITION","FOLIO","PAGE","ENTRY","DATE_TYPE","DATE1","DATE2""REG","SUB","PAR","CHAPMAN",
+                "COUNTY","COUNTRY","DISTRICT","EDITION","FOLIO","PAGE","ENTRY","DATE_TYPE","DATE1","DATE2."
+            </pre>  
+         </div>
+
+    <a href=""><button class="back-btn">Back</button></a>
+</div> 
+</body>
+</html>
