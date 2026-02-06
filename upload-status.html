@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Status</title>
+     <link rel="stylesheet" href="/css/freereg.css" />
+     <script type="module" src="/src/main.js"></script>
+     <script type="module" src="/src/upload-status.js"></script>
+</head>
+<body>
+<header>
+    <nav role="navigation">
+        <a class="logo" href="https://reg.dev2.freecomett.org.uk/">
+            <img src="/css/images/freecomett.svg" alt="FreeComETT logo"/>
+        </a>
+        <ul>
+            <li>
+                File
+                <ul>
+                    <li>New</li>
+                    <li>Open</li>
+                    <li>Log Out</li>
+                </ul>
+            </li>
+            <li>
+                Tools
+                <ul>
+                    <li>Upload CSV</li>
+                    <li>View Upload Status</li>
+                    <li>List Images</li>
+                    <li>Refresh Page</li>
+                    <li>Log into FreeREG</li>
+                    <li>Administration</li>
+                </ul>
+            </li>
+            <li>
+                Support
+                <ul>
+                    <li>See all comments</li>
+                    <li>Post a comment</li>
+                    <li>Message Coordinator</li>
+                </ul>
+            </li>
+        </ul>
+        <a class="logo block" href="https://reg.dev2.freecomett.org.uk/">
+            <img src="/css/images/freereg.svg" alt="FreeREG logo"/>
+        </a>
+    </nav>
+</header>
+
+<br>
+<div class="gutter">
+    <div>
+        <!--Page Navigation-->
+        <span class="link-container"> 
+            <a class="link-style" href="../index.html">Home</a> >
+            <a class="link-style" href="../load-csv.html">Load CSV</a> >
+            <span style="color: black; word-spacing: 0px;">Upload Status</span>
+            <!-- User Info-->
+            <span class="info-one">
+                <span class="info-two">Records transcribed - xxxxxxx </span> 
+                <span>Cameron Harlow-Sheen- in test 3 </span>
+            </span>
+        </span>
+        <br><br>
+        <h3>View Upload Status</h3>
+        <br>
+        <small>Monitor the progress of your CSV file upload.</small>
+    </div>
+
+    <!-- Upload Status Display -->
+    <div class="upload-status-container">
+        <div class="status-card">
+            <div class="status-header">
+                <h4>Upload Status</h4>
+                <span class="status-badge status-completed">Completed</span>
+            </div>
+            
+            <div class="status-details">
+                <div class="detail-row">
+                    <span class="detail-label">BMD File Name:</span>
+                    <code class="detail-value">SALSHR_1766053753126</code>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Scan Name:</span>
+                    <code class="detail-value">RHSHR File</code>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Upload Date:</span>
+                    <code class="detail-value">2024-06-15</code>
+                </div>
+            </div>
+
+            <div class="messages-header">
+                <h4>Upload Messages</h4>
+            </div>
+            <div class="status-details">
+                <div class="detail-row">
+                    <span class="detail-label">Messages go here</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <a href="../load-csv.html"><button class="back-btn">Back</button></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
